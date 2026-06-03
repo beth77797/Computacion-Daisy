@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Curso de Python Esencial</title>
+    <style>
+        :root {
+            --primary: #306998;
+            --secondary: #FFE873;
+            --dark: #212529;
+            --light: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f6f9;
+            color: var(--dark);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), #1e415e);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 5px solid var(--secondary);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        header p {
+            margin: 0.5rem 0 0 0;
+            opacity: 0.9;
+        }
+
+        nav {
+            background-color: var(--dark);
+            padding: 0.8rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--secondary);
+        }
+
+        main {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--primary);
+        }
+
+        h2 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+
+        pre {
+            background-color: #272822;
+            color: #f8f8f2;
+            padding: 1rem;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .keyword { color: #f92672; }
+        .string { color: #e6db74; }
+        .number { color: #ae81ff; }
+        .comment { color: #75715e; }
+        .function { color: #a6e22e; }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: var(--dark);
+            color: white;
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Mini Curso de Python</h1>
+        <p>Aprende los 5 pilares fundamentales del lenguaje más popular</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#variables">1. Variables</a></li>
+            <li><a href="#condicionales">2. Condicionales</a></li>
+            <li><a href="#bucles">3. Bucles</a></li>
+            <li><a href="#listas">4. Listas</a></li>
+            <li><a href="#funciones">5. Funciones</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="variables" class="card">
+            <h2>1. Variables y Tipos de Datos</h2>
+            <p>Las variables son contenedores para almacenar valores de datos. En Python no necesitas declarar el tipo de variable, ¡se detecta automáticamente!</p>
+            <pre>
+<span class="comment"># Esto es un comentario. Así se guardan los datos:</span>
+nombre = <span class="string">"Carlos"</span>      <span class="comment"># Tipo Texto (String)</span>
+edad = <span class="number">25</span>               <span class="comment"># Tipo Entero (Integer)</span>
+precio = <span class="number">19.99</span>          <span class="comment"># Tipo Decimal (Float)</span>
+es_mayor = <span class="keyword">True</span>         <span class="comment"># Tipo Booleano (Boolean)</span>
+
+<span class="function">print</span>(nombre)           <span class="comment"># Muestra "Carlos" en pantalla</span>
+            </pre>
+        </section>
+
+        <section id="condicionales" class="card">
+            <h2>2. Estructuras Condicionales (If / Else)</h2>
+            <p>Permiten al programa tomar decisiones basadas en condiciones. **Ojo:** En Python es obligatorio usar la sangría (indentación) para saber qué código va dentro de la condición.</p>
+            <pre>
+edad = <span class="number">18</span>
+
+<span class="keyword">if</span> edad >= <span class="number">18</span>:
+    <span class="function">print</span>(<span class="string">"Eres mayor de edad."</span>)
+<span class="keyword">elif</span> edad == <span class="number">17</span>:
+    <span class="function">print</span>(<span class="string">"Casi eres mayor de edad."</span>)
+<span class="keyword">else</span>:
+    <span class="function">print</span>(<span class="string">"Eres menor de edad."</span>)
+            </pre>
+        </section>
+
+        <section id="bucles" class="card">
+            <h2>3. Bucles (For / While)</h2>
+            <p>Sirven para repetir un bloque de código varias veces sin tener que escribirlo de nuevo.</p>
+            <pre>
+<span class="comment"># Bucle FOR: Repite un número fijo de veces (aquí del 0 al 4)</span>
+<span class="keyword">for</span> i <span class="keyword">in</span> <span class="function">range</span>(<span class="number">5</span>):
+    <span class="function">print</span>(<span class="string">"Número:"</span>, i)
+
+<span class="comment"># Bucle WHILE: Se repite mientras la condición sea verdadera</span>
+contador = <span class="number">0</span>
+<span class="keyword">while</span> contador &lt; <span class="number">3</span>:
+    <span class="function">print</span>(<span class="string">"Contando..."</span>)
+    contador = contador + <span class="number">1</span>
+            </pre>
+        </section>
+
+        <section id="listas" class="card">
+            <h2>4. Listas (Colecciones de datos)</h2>
+            <p>Las listas permiten guardar múltiples elementos en una sola variable. Los elementos se cuentan empezando desde la posición **0**.</p>
+            <pre>
+frutas = [<span class="string">"manzana"</span>, <span class="string">"banana"</span>, <span class="string">"cereza"</span>]
+
+<span class="comment"># Acceder al primer elemento</span>
+<span class="function">print</span>(frutas[<span class="number">0</span>])  <span class="comment"># Resultado: manzana</span>
+
+<span class="comment"># Añadir un elemento nuevo</span>
+frutas.append(<span class="string">"naranja"</span>)
+            </pre>
+        </section>
+
+        <section id="funciones" class="card">
+            <h2>5. Funciones</h2>
+            <p>Una función es un bloque de código reutilizable que sólo se ejecuta cuando lo llamas. Se define con la palabra clave <code class="keyword">def</code>.</p>
+            <pre>
+<span class="keyword">def</span> <span class="function">saludar</span>(nombre_usuario):
+    <span class="keyword">return</span> <span class="string">"¡Hola "</span> + nombre_usuario + <span class="string">", bienvenido al curso!"</span>
+
+<span class="comment"># Llamando a la función</span>
+mensaje = saludar(<span class="string">"Ana"</span>)
+<span class="function">print</span>(mensaje)  <span class="comment"># Resultado: ¡Hola Ana, bienvenido al curso!</span>
+            </pre>
+        </section>
+    </main>
+
+    <footer>
+        <p>¡Felicidades! Has completado la guía básica de Python. Próximo paso: ¡Escribir tu propio código!</p>
+    </footer>
+
+</body>
+</html>
